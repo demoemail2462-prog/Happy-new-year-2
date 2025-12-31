@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year Babay ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+  background:radial-gradient(circle at top,#2b0036,#000);
+  height:100vh;overflow:hidden;color:#fff;text-align:center
+}
+.glow{
+  color:#ffb6ff;
+  text-shadow:0 0 10px #ff4fd8,0 0 20px #ff4fd8,0 0 40px #ff1fc8
+}
+.container{
+  position:relative;top:50%;transform:translateY(-50%);
+  padding:20px;z-index:5
+}
+h1{font-size:2.4rem;margin-bottom:15px}
+p{font-size:1.2rem;margin-bottom:30px;line-height:1.6}
+button{
+  background:linear-gradient(45deg,#ff2fa0,#ff77d9);
+  border:none;padding:14px 28px;font-size:1.1rem;
+  border-radius:40px;color:white;cursor:pointer;
+  box-shadow:0 0 15px #ff4fd8;animation:pulse 2s infinite
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+  100%{transform:scale(1)}
+}
+#surprise{display:none;margin-top:25px;font-size:1.2rem}
+.heart{
+  position:fixed;bottom:-20px;font-size:18px;
+  animation:floatUp 6s linear infinite;color:#ff4fa3
+}
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:1}
+  100%{transform:translateY(-100vh);opacity:0}
+}
+.sparkle{
+  position:fixed;width:4px;height:4px;background:#fff;
+  border-radius:50%;opacity:.8;animation:sparkle 3s infinite
+}
+@keyframes sparkle{
+  0%,100%{opacity:.2}
+  50%{opacity:1}
+}
+canvas{position:fixed;top:0;left:0;z-index:1}
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<div class="container">
+  <h1 class="glow">🎆 Happy New Year Babay ❤️ 🎆</h1>
+  <p>
+    Thank you for coming into my life.<br>
+    I Love You so much Babay ❤️
+  </p>
+  <button onclick="showSurprise()">Tap Here 💓</button>
+  <div id="surprise" class="glow">
+    ✨ You are my favorite part of every year ✨
+  </div>
+</div>
+
+<script>
+function showSurprise(){
+  document.getElementById("surprise").style.display="block";
+}
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=Math.random()*20+15+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},300);
+
+setInterval(()=>{
+  const s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),3000);
+},200);
+
+const c=document.getElementById("fireworks");
+const x=c.getContext("2d");
+c.width=innerWidth;c.height=innerHeight;
+setInterval(()=>{
+  x.beginPath();
+  x.arc(Math.random()*c.width,Math.random()*c.height/2,3,0,Math.PI*2);
+  x.fillStyle=`hsl(${Math.random()*360},100%,60%)`;
+  x.fill();
+},120);
+</script>
+
+</body>
+  </html>
